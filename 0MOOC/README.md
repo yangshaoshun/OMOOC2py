@@ -3,6 +3,9 @@
 
 ## 进展
 
-###double push test
+###double push
+- first test succeed !
+- second test ...
+
 
 - 150924 大妈创建

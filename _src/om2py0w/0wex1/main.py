@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sys import argv
+import time
 
 #script, filename = argv
 
@@ -18,9 +18,10 @@ print "Now you can write down your one-line journal."
 #input
 
 daily = raw_input(">>> ")
+wtime = time.strftime('%Y-%m-%d %H:%M:%S')
 #回车键 ''
 while daily != '' :    #有内容，继续；直接回车，保存退出
-    target.write(daily)
+    target.write(wtime + ' ' + daily)
     target.write('\n')
     daily = raw_input(">>> ")
     

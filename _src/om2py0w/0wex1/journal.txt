@@ -26,4 +26,4 @@ script, filename = argv
 参数为中文字符
 持续交互 rawinput(“> “)
 输出为文件 open(filename, “a”)
-回读文本数据  再次打开即可，日志是啥不懂
+回读文本数据  再次打开即可，日志是啥不懂go on testing

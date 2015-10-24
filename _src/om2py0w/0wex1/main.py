@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 '''文件说明:极简日志系统
 作者信息：yangshaoshun
-版本自述：v1.0
-    ...
+版本自述：v1.1
+更新计划1：改成 main 函数的调用的形式；批量修改缩进
+更新计划2：然后使用 docopt，使得调用增加帮助、版本等常见参数
 '''
 #全局引用
 import time
 import os
+
+#函数撰写区
+#def main():
 
 filename = raw_input(">>>Input your diary name: ")
 
@@ -40,5 +44,6 @@ while True:
 	    target.write(wtime + ' ' + line + '\n')
 	    target.close()
 
+#自检区
 #if __name__ == '__main__':
 	#main()

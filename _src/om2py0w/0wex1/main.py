@@ -35,3 +35,6 @@ while line != '' :    #有内容，继续；直接回车，保存退出
 #save file
 print "保存文件..."
 target.close()
+
+if __name__ == '__main__':
+	main()

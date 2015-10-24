@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
 
 import time
+import os
 
 #script, filename = argv
 
 filename = raw_input(">>>Input your diary name: ")
-target = open(filename + '.txt', 'a')
+
+if os.path.exists(filename):
+    target = open(filename + '.txt', 'r')
+    print target.read()
+    target = open(filename + '.txt', 'a')
+    
+else:
+	target = open(filename + '.txt', 'a')
 
 #review the history
 #target = open(filename)

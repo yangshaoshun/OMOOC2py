@@ -38,15 +38,5 @@ while True:
 	    target.write(wtime + ' ' + line + '\n')
 	    target.close()
 
-
-
-
-#while (line != '') and (line != 'q') and (line !='quit'):    #有内容，继续；直接回车，保存退出
-#    target.write(wtime + ' ' + line)
-#    target.write('\n')
-#    line = raw_input(">>> ")
-
-
-
 #if __name__ == '__main__':
 	#main()

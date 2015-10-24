@@ -1,19 +1,25 @@
-# -*- coding: gb2312 encoding -*-
+# -*- coding: utf-8 -*-
 
 from sys import argv
 
-script, filename = argv
+#script, filename = argv
+
+filename = raw_input(">>> ")
+target1 = open(filename, 'w')
+target1.write(filename)
+
+
 
 #review the history
-target = open(filename)
-print target.read()
+#target = open(filename)
+#print target.read()
 
 #give some hint
 print "You'are editing the %r file." % filename
 print "Now you can write down your one-line journal."
 
 #input
-daily = raw_input("> ")
+daily = raw_input(">>> ")
 
 print daily
 
@@ -30,7 +36,7 @@ target.write("\n")
 print "Saving the file..."
 target.close()
 
-raw_input("> ")
+raw_input(">>> ")
 
 #check the file again
 #target_again = open(filename)

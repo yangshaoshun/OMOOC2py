@@ -12,9 +12,11 @@ filename = raw_input(">>>Input your diary name: ")
 
 #判断文件是否存在；存在，打印历史；不存在，新建。
 if os.path.exists(filename + '.txt'):
-    target = open(filename + '.txt', 'r')
-    print target.read()
+    with open(filename + '.txt') as f:
+        for line in f:
+            print line,  #末尾有逗号，就不会自动换行
     target = open(filename + '.txt', 'a')
+    
 else:
 	target = open(filename + '.txt', 'a')
 

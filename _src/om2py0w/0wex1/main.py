@@ -5,7 +5,7 @@ from sys import argv
 #script, filename = argv
 
 filename = raw_input(">>>Input your diary name: ")
-target = open(filename, 'a')
+target = open(filename + '.txt', 'a')
 
 #review the history
 #target = open(filename)
@@ -17,9 +17,9 @@ print "Now you can write down your one-line journal."
 
 #input
 
-key = '' #回车键
 daily = raw_input(">>> ")
-while daily != key :    #有内容，继续；直接回车，保存退出
+#回车键 ''
+while daily != '' :    #有内容，继续；直接回车，保存退出
     target.write(daily)
     target.write('\n')
     daily = raw_input(">>> ")

@@ -28,10 +28,10 @@ while True:
         target.close()
         print "保存文件并推出..."
         break
-    elif line == 'h':
+    elif line == 'h' or line == '?' or line == 'help':
         print '''
-        按 q/quit/Enter 推出
-        按 h 查看帮助
+        输入 q/quit/Enter 推出
+        输入 ?/h/hlep 查看帮助
         '''
     else:
 	    wtime = time.strftime('%Y-%m-%d %H:%M:%S')

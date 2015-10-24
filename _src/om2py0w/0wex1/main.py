@@ -4,11 +4,8 @@ from sys import argv
 
 #script, filename = argv
 
-filename = raw_input(">>> ")
-target1 = open(filename, 'w')
-target1.write(filename)
-
-
+filename = raw_input(">>>Input your diary name: ")
+target = open(filename, 'a')
 
 #review the history
 #target = open(filename)
@@ -21,12 +18,11 @@ print "Now you can write down your one-line journal."
 #input
 daily = raw_input(">>> ")
 
-print daily
 
 #w,wirite mode
 #r,read mode
 #a,append mode
-target = open(filename, 'a')
+
 
 #write in srting and enter
 target.write(daily)

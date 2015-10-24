@@ -16,8 +16,14 @@ print "You'are editing the %r file." % filename
 print "Now you can write down your one-line journal."
 
 #input
-daily = raw_input(">>> ")
 
+key = '' #回车键
+daily = raw_input(">>> ")
+while daily != key :    #有内容，继续；直接回车，保存退出
+    target.write(daily)
+    target.write('\n')
+    daily = raw_input(">>> ")
+    
 
 #w,wirite mode
 #r,read mode
@@ -25,14 +31,12 @@ daily = raw_input(">>> ")
 
 
 #write in srting and enter
-target.write(daily)
-target.write("\n")
+
 
 #save file
-print "Saving the file..."
+print "保存文件..."
 target.close()
 
-raw_input(">>> ")
 
 #check the file again
 #target_again = open(filename)

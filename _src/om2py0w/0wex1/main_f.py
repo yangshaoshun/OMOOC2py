@@ -6,24 +6,17 @@
 更新计划2：然后使用 docopt，使得调用增加帮助、版本等常见参数
 '''
 #全局引用
-import time
-import os
+import os,time
 
 #函数撰写区
-def main():
-    filename = raw_input(">>>Input your diary name: ")
-
-    #判断文件是否存在；存在，打印历史；不存在，新建。
+def history(filename):
     if os.path.exists(filename + '.txt'):
         with open(filename + '.txt') as f:
             for line in f:
-                print line,  #末尾有逗号，就不会自动换行
-        target = open(filename + '.txt', 'a')
-        
-    else:
-    	target = open(filename + '.txt', 'a')
+                print line
 
-    #give some hint
+def writing(filename):
+    target = open(filename + '.txt', 'a')
     print "You'are editing the %r file." % filename
     print "Now you can write down your one-line journal."
 
@@ -39,10 +32,14 @@ def main():
             输入 ?/h/hlep 查看帮助
             '''
         else:
-    	    wtime = time.strftime('%Y-%m-%d %H:%M:%S')
-    	    target.write(wtime + ' ' + line + '\n')
-    	    #target.close()  # 这里完全没必要存在，不是写函数的，没有发现这里的逻辑错误
-
+            wtime = time.strftime('%Y-%m-%d %H:%M:%S')
+            target.write(wtime + ' ' + line + '\n')
+       
+def main():
+    filename = raw_input(">>>Input your diary name: ")
+    history(filename)
+    writing(filename)
+    
 #自检区
 if __name__ == '__main__':
-	main()
+    main()

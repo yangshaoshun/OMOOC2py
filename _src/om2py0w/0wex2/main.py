@@ -29,7 +29,7 @@ headname.set('编辑' + filename +'.txt')
 w.pack()
 
 #通过按钮读取输入的内容，保存到本地文件中
-def callback(*args):
+def callback(*args):   # *args 的具体含义不知道，不加的话，提示 callback() takes no arguments
     txt = v.get()
     target = open(filename + '.txt', 'a')
     target.write(txt + '\n')

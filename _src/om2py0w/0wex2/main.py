@@ -44,32 +44,41 @@ def callback(*args):   # *args 的具体含义不知道，不加的话，提示 
     e.delete(0, END)
     e.focus_set()
     t.insert(END, lastline)
+    #t.insert(END, lastline,'current_line')
+    #t.tag_remove("current_line", 1.0, "end")
 
 #输入框
 v = StringVar()
 e = Entry(master, textvariable = v , width=50)
 e.bind('<Return>',callback)
-e.pack()
+e.pack(fill="x")
 
 #b = Button(master, text="get", width=10, command=callback)
 #b.pack()
 
 #读取文件内容
-s = StringVar()
-target = open('mydiary.log')
-s.set(target.read())
+#s = StringVar()
+#target = open('mydiary.log')
+#s.set(target.read())
 #展示文件内容
 #w = Message(master, textvariable=s, width=50)
 #w.pack()
 
-t = Text(master)
-t.pack()
+#def highlightline(Event=None):
+#        t.tag_remove("current_line", 1.0, "end")
+#        t.tag_add("current_line", "current linestart", "current lineend+1c")
+
+t = Text(master, width = 30)
+t.pack(anchor = W)
+#设置一个标签，叫做 当前行为灰色
+#t.tag_configure("current_line", background="gray")
+#t.bind("<Return>", highlightline)
 with open('mydiary.log') as f:
     for line in f:
         t.insert(END, line)
         lastline = line
 
 bu = Button(master, text = 'quit', command = master.quit) #退出按钮，添加成功
-bu.pack(side = LEFT)
+bu.pack(side=LEFT)
 
 mainloop()

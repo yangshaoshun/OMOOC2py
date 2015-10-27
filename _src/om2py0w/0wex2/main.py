@@ -55,4 +55,7 @@ s.set(target.read())
 w = Message(master, textvariable=s, width=500)
 w.pack()
 
+bu = Button(master, text = 'quit', command = master.quit) #退出按钮，添加成功
+bu.pack()
+
 mainloop()

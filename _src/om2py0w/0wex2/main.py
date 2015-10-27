@@ -24,16 +24,12 @@ master = Tk()
 #提示信息
 headname = StringVar()
 w = Label(master, textvariable = headname)
+w = Label(master, text = '^--^')
 headname.set('编辑' + filename +'.txt')
 w.pack()
 
-#输入框
-v = StringVar()
-e = Entry(master, textvariable = v)
-e.pack()
-
 #通过按钮读取输入的内容，保存到本地文件中
-def callback():
+def callback(*args):
     txt = v.get()
     target = open(filename + '.txt', 'a')
     target.write(txt + '\n')
@@ -41,6 +37,12 @@ def callback():
     s.set(target.read())
     e.delete(0, END)
     e.focus_set()
+
+#输入框
+v = StringVar()
+e = Entry(master, textvariable = v)
+e.bind('<Return>',callback)
+e.pack()
 
 b = Button(master, text="get", width=10, command=callback)
 b.pack()

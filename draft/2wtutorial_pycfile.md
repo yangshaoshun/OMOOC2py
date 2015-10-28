@@ -3,7 +3,7 @@
 最简单的生成方法，在当前文件夹下 import main.py 即可
  
 To be more clear, Python only creates .pyc files for imported modules. If you want to create a `.pyc` for a file you call directly from teh command line, use `py_compile`; for a whole directory, use `compileall`. There is a command line interface for both modules; just do `python -m py_compile script_name`. 
-
+c
 
 [生成单个pyc文件](http://blog.csdn.net/sislcb/article/details/4002414)
 

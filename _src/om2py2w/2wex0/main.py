@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 '''文件说明:极简日志系统-桌面版
 作者信息：yangshaoshun
-版本自述：v1.2
-更新：本地必须是有 mydaily.log；使用 text 插件显示内容，不用输入文件名称；main_me.py 使用 message 插件显示内容
-待解决问题1：因为 idle 编码问题，无法输入中文 （windows下可以运行，tk版本为8.5 python为2.7.1）
-待解决问题4：不止输入一行字符，使用 txt 输入一段文字，甚至可以输入 md 格式，下面展示转换后的内容
+版本自述：v1.3
+更新：添加了滚动条，解决了内容超过显示框不自动跟随的问题
+待解决问题1：因为 idle 编码问题，mac下无法输入中文 （windows下可以运行，tk版本为8.5 python为2.7.1）
+待解决问题2：不止输入一行字符，使用 txt 输入一段文字，甚至可以输入 md 格式，下面展示转换后的内容
 代办事项：书写 readme.md
 代办事项2：docopt 的使用
 '''
@@ -45,6 +45,7 @@ def callback(*args):   # *args 的具体含义不知道，不加的话，提示 
     e.delete(0, END)
     e.focus_set()
     t.insert(END, lastline)
+    t.see(END)   # 如果index指示的位置不可见，则滚动屏幕直至可见，写文本编辑器必备啊
 
 #输入框
 v = StringVar()
@@ -64,7 +65,11 @@ e.pack(fill="x")
 #w = Message(master, textvariable=s, width=50)
 #w.pack()
 
-t = Text(master, width = 30)
+#添加滚动条
+scrollbar = Scrollbar(master)
+scrollbar.pack(side=RIGHT, fill=Y)
+
+t = Text(master, width = 30, wrap=WORD, yscrollcommand=scrollbar.set)
 t.pack(anchor = W)
 #设置一个标签，叫做 当前行为灰色
 t.tag_config("endl", background="gray")
@@ -74,6 +79,9 @@ with open('mydaily.log') as f:
         t.insert(END, line)
         lastline = line
 t.tag_add('endl', "current linestart", "current lineend+1c")
+t.see(END) #如果index指示的位置不可见，则滚动屏幕直至可见，写文本编辑器必备啊
+
+scrollbar.config(command=t.yview)
 
 bu = Button(master, text = 'quit', command = master.quit) #退出按钮，添加成功
 bu.pack(side=LEFT)

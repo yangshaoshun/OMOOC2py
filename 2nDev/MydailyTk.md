@@ -3,17 +3,31 @@
 
 ## Tkinter
 
+- Lable
+- Button
+- Entry
+- Message
+- Text
+- Scrollbar
 
-## 绑定回车键
-bind
-
-## 添加退出按钮
+### 添加退出按钮
 master.quit()
 
+### 界面布局
+.pack()
+
+fill = X
+expand = True
+anchor = W
+side = LEFT
 
 ## 输入框 + Message 的实现
 
 ## StringVar 变量使用
+.get()
+
+### 绑定回车键
+bind
 
 ## 输入框 + Text 的实现 
 

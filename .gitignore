@@ -76,3 +76,8 @@ _book
 *.epub
 *.mobi
 *.pdf
+*.txt
+_src/om2py0w/0wex2/mydiary.log
+*.log
+*.log
+*.log

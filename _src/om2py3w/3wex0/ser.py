@@ -14,6 +14,7 @@ while True:
         target.close()
         continue #解决了无论如何都会执行 else 后面语句块的问题
     elif data == 'q':
+        s.sendto('q', addr)
     	break
     elif data == '?':
         help = '''
@@ -27,5 +28,6 @@ while True:
         target = open("mydaily.log", 'a')
         target.write(data + '\n')
         target.close()
+        s.sendto('',addr)
 
 s.close()

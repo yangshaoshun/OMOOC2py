@@ -23,7 +23,7 @@ def server():
 
     while True:
         data, addr = s.recvfrom(2048)
-        if data == 's' or data == '':
+        if data == 'r' or data == '':
             target = open("mydaily.log")
             s.sendto(target.read(), addr)
             target.close()
@@ -33,7 +33,7 @@ def server():
             break
         elif data == '?':
             help = '''
-            输入 s 同步日志记录
+            输入 r 同步日志记录
             输入 q/quit/Enter 推出
             输入 ?/h/hlep 查看帮助
             '''
@@ -71,7 +71,7 @@ def client():
 
 if __name__ == '__main__':
     arguments = docopt(__doc__, version='Mydaily3.0')
-    if arguments['s']:
+    if arguments['s']:  #arguments 是个字典，所以使用索引
         server()
     if arguments['c']:
         client()

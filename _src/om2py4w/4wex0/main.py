@@ -19,6 +19,12 @@ def do_input():
     history = open_file.read()
     return template('input1.tpl', history = history)  
 
+@route('/log')
+def history():
+    open_file = open("mydaily.log")
+    history = open_file.read()
+    return template('input.tpl', history = history)
+
 if __name__ == '__main__':
     debug(True)
     run(host='localhost', port=8080, reloader=True)

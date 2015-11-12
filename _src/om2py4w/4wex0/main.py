@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 from bottle import * 
+import sys
+
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 
 @route('/')
 @route('/text') #text 页面
@@ -7,7 +11,7 @@ from bottle import *
 def input(): #把text页面与 input 函数绑定，每次打开text 页面，得到 input 函数的返回值
     open_file = open("mydaily.log")
     history = open_file.read()
-    return template('input1.tpl', history = history)
+    return template('input.tpl', history = history)
 
 @route('/text', method ='POST')
 def do_input():
@@ -17,13 +21,13 @@ def do_input():
     target.close()
     open_file = open("mydaily.log")
     history = open_file.read()
-    return template('input1.tpl', history = history)  
+    return template('input.tpl', history = history)  
 
 @route('/log')
 def history():
     open_file = open("mydaily.log")
     history = open_file.read()
-    return template('input.tpl', history = history)
+    return template('history.tpl', history = history)
 
 if __name__ == '__main__':
     debug(True)

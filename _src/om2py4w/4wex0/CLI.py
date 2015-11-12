@@ -1,6 +1,10 @@
-#encoding=utf8
+# -*- coding: utf-8 -*-
 from bottle import *
 import requests
+import sys
+
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 
 read = requests.get('http://localhost:8080/log')
 print read.text

@@ -12,7 +12,7 @@ print read.text
 #向表单提交信息
 while True:
     line = raw_input(">>> ")
-    if line == 'q' or line == 'quit' or line == '':
+    if line in ['q','quit']:
         break
     elif line == 'h' or line == '?' or line == 'help':
         print '''

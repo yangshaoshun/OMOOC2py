@@ -5,11 +5,11 @@ import sys
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
-'''
-def history():
+
+def print_log():
     open_file = open("mydaily.log")
-    history = open_file.read()
-'''
+    log = open_file.read()
+    return log
 
 def new(txt_add):
     target = open("mydaily.log", 'a')
@@ -18,25 +18,29 @@ def new(txt_add):
 
 @route('/')
 @route('/text') #text 页面
-
 def input(): #把text页面与 input 函数绑定，每次打开text 页面，得到 input 函数的返回值
-    open_file = open("mydaily.log")
-    history = open_file.read()
-    return template('input.tpl', history = history)
+#    open_file = open("mydaily.log")
+#    history = open_file.read()
+    log = print_log()
+    return template('input.tpl', history = log)
 
 @route('/text', method ='POST')
 def do_input():
     data = request.forms.get('indata')
     new(data)
-    open_file = open("mydaily.log")
-    history = open_file.read()
-    return template('input.tpl', history = history)  
+    log = print_log()
+    return template('input.tpl', history = log)
+#    open_file = open("mydaily.log")
+#    history = open_file.read()
+#    return template('input.tpl', history = history)  
 
 @route('/log')
 def history():
-    open_file = open("mydaily.log")
-    history = open_file.read()
-    return template('history.tpl', history = history)
+#    open_file = open("mydaily.log")
+#    history = open_file.read()
+#    return template('history.tpl', history = history)
+    log = print_log()
+    return template('history.tpl', history = log)
 
 if __name__ == '__main__':
     debug(True)

@@ -10,6 +10,9 @@ def print_log():
     read = requests.get('http://localhost:8080/log')
     print read.text
 
+#运行先打印日志
+print_log()
+
 #向表单提交信息
 while True:
     line = raw_input(">>> ")

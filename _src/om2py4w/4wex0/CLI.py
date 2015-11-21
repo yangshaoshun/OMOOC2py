@@ -6,14 +6,13 @@ import sys
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
+#打印日志
 def print_log():
     read = requests.get('http://localhost:8080/log')
     print read.text
 
-#向表单提交信息
 def main():
-    #运行先打印日志
-    print_log()
+    print_log() #运行先打印日志
     while True:
         line = raw_input(">>> ")
         if line in ['q','quit']:
@@ -27,8 +26,8 @@ def main():
             print_log()
         else:
             form_data = {'indata':line}
-            r = requests.post('http://localhost:8080/text',data = form_data)
+            r = requests.post('http://localhost:8080/text',data = form_data)  #向表单提交信息
             continue
 
-if __name__ == __main__:
+if __name__ == '__main__':
     main()

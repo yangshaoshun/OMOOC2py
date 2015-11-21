@@ -19,8 +19,6 @@ def new(txt_add):
 @route('/')
 @route('/text') #text 页面
 def input(): #把text页面与 input 函数绑定，每次打开text 页面，得到 input 函数的返回值
-#    open_file = open("mydaily.log")
-#    history = open_file.read()
     log = print_log()
     return template('input.tpl', history = log)
 
@@ -30,15 +28,9 @@ def do_input():
     new(data)
     log = print_log()
     return template('input.tpl', history = log)
-#    open_file = open("mydaily.log")
-#    history = open_file.read()
-#    return template('input.tpl', history = history)  
 
 @route('/log')
 def history():
-#    open_file = open("mydaily.log")
-#    history = open_file.read()
-#    return template('history.tpl', history = history)
     log = print_log()
     return template('history.tpl', history = log)
 

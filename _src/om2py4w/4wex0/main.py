@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from bottle import * 
 import sys
+from jinja2 import Template
 
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
@@ -32,7 +33,9 @@ def do_input():
 @route('/log')
 def history():
     log = print_log()
-    return template('history.tpl', history = log)
+    template = Template('{{history}}')
+    return template.render( history = log )
+#    return template('{{history}}', history = log)
 
 if __name__ == '__main__':
     debug(True)

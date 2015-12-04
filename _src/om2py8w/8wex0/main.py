@@ -5,7 +5,9 @@ from bs4 import BeautifulSoup
 def main():
 	r = requests.get('http://esf.fang.com/house/w33/')
 	soup = BeautifulSoup(r.text, "html.parser")
-	print (soup.title.text)
+	li = soup.find(id = "list_D03_24")
+	print li
+
 
 if __name__ == '__main__':
     main()

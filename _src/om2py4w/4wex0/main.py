@@ -7,15 +7,19 @@ reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
 
+# 打开历史文件
 def print_log():
     open_file = open("mydaily.log")
     log = open_file.read()
     return log
 
+# 向历史文件写入数据
 def new(txt_add):
     target = open("mydaily.log", 'a')
     target.write(txt_add + '\n')
     target.close()
+
+
 
 @route('/')
 @route('/text') #text 页面

@@ -8,18 +8,29 @@ sys.setdefaultencoding( "utf-8" )
 
 # dababase
 import sqlite3
-conn = sqlite3.connect('mydaily.db') # connect to  'mydaily.db'
+conn = sqlite3.connect('mydaily_test.db') # connect to  'mydaily.db'
 c = conn.cursor()
 # creat a table with sql commands
+#c.execute('''CREATE TABLE mydaily_test
+#                (contents text)''')
 #c.execute('''CREATE TABLE mydaily_log
 #                (time text, contents text, tag text)''')
-c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
+#c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
 conn.commit()
-c.execute("SELECT * FROM mydaily_log")
-print c.fetchone()
-conn.close()
+#c.execute("SELECT * FROM mydaily_log")
+#print c.fetchone()
+
+def print_log():
+    c.execute("SELECT contents FROM mydaily_test")
+    return c.fetchall()
+
+def new(txt_add):
+    c.execute('INSERT INTO mydaily_test VALUES (?)',txt_add)
+    conn.commit()
+
 
 # 打开历史文件
+'''
 def print_log():
     open_file = open("mydaily.log")
     log = open_file.read()
@@ -30,7 +41,7 @@ def new(txt_add):
     target = open("mydaily.log", 'a')
     target.write(txt_add + '\n')
     target.close()
-
+'''
 
 
 @route('/')

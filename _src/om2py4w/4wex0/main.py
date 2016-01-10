@@ -6,6 +6,12 @@ from jinja2 import Template
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
+# dababase
+import sqlite3
+conn = sqlite3.connect('mydaily.db') # connect to  'mydaily.db'
+c = conn.cursor()
+
+
 
 # 打开历史文件
 def print_log():

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from bottle import * 
 
+def print_log():
+    open_file = open("mydaily.log")
+    log = open_file.read()
+    return log
+
 @route('/text')
 def input():
     return'''
@@ -10,6 +15,14 @@ def input():
         </form>
 
     '''
+
+
+
+@route('/log')
+def history():
+    log = print_log()
+    #return template('history.tpl', history = log)
+    return template('{{history}}',history = log)
 
 if __name__ == '__main__':
     debug(True)

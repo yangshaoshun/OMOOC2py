@@ -17,6 +17,7 @@ c = conn.cursor()
 #                (time text, contents text, tag text)''')
 #c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
 #conn.commit()
+conn.text_factory = str
 #c.execute("SELECT * FROM mydaily_log")
 #print c.fetchone()
 

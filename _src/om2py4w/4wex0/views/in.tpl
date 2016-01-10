@@ -18,7 +18,13 @@
 <form role="form">
   <div class="form-group">
     <label for="name">历史记录</label>
-    <textarea class="form-control" rows="20">{{history}}</textarea>
+    <textarea class="form-control" rows="20">
+    %for row in history:
+          %for col in row:
+              {{col}}
+          %end
+    %end
+    </textarea>
   </div>
 </form>
 

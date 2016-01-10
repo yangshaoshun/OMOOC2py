@@ -11,21 +11,21 @@ import sqlite3
 conn = sqlite3.connect('mydaily_test.db') # connect to  'mydaily.db'
 c = conn.cursor()
 # creat a table with sql commands
-#c.execute('''CREATE TABLE mydaily_test
-#                (contents text)''')
+#c.execute('''CREATE TABLE mydaily_test1
+#                (contents blob)''')
 #c.execute('''CREATE TABLE mydaily_log
 #                (time text, contents text, tag text)''')
 #c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
-conn.commit()
+#conn.commit()
 #c.execute("SELECT * FROM mydaily_log")
 #print c.fetchone()
 
 def print_log():
-    c.execute("SELECT contents FROM mydaily_test")
+    c.execute("SELECT contents FROM mydaily_test1")
     return c.fetchall()
 
 def new(txt_add):
-    c.execute('INSERT INTO mydaily_test VALUES (?)',txt_add)
+    c.execute("INSERT INTO mydaily_test1 VALUES (?)",(txt_add,)) # add a comma 
     conn.commit()
 
 

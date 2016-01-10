@@ -2,20 +2,22 @@
 from bottle import * 
 import sys
 from jinja2 import Template
+from datetime import datetime
 
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
 # dababase
 import sqlite3
-conn = sqlite3.connect('mydaily_test.db') # connect to  'mydaily.db'
+conn = sqlite3.connect('mydaily.db') # connect to  'mydaily.db'
 conn.text_factory = str
 c = conn.cursor()
+
 # creat a table with sql commands
 #c.execute('''CREATE TABLE mydaily_test1
 #                (contents blob)''')
-#c.execute('''CREATE TABLE mydaily_log
-#                (time text, contents text, tag text)''')
+#c.execute('''CREATE TABLE mydaily
+#                (time text, contents text)''')
 #c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
 #conn.commit()
 
@@ -23,14 +25,14 @@ c = conn.cursor()
 #print c.fetchone()
 
 def print_log():
-    c.execute("SELECT contents FROM mydaily_test1")
+    c.execute("SELECT * FROM mydaily")
     return c.fetchall()
 
 def new(txt_add):
-    conn.text_factory = str
-    c.execute("INSERT INTO mydaily_test1 VALUES (?)",(txt_add,)) # add a comma 
+    today = datetime.now()
+    t = today.strftime("%y/%m/%d %h/%m")
+    c.execute("INSERT INTO mydaily (time ,contents) VALUES (?,?)",(t, txt_add)) # add a comma 
     conn.commit()
-
 
 # 打开历史文件
 '''

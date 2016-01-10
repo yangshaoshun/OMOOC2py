@@ -18,13 +18,15 @@
 <form role="form">
   <div class="form-group">
     <label for="name">历史记录</label>
-    <textarea class="form-control" rows="20">
+    <table border='1'>
     %for row in history:
+          <tr>
           %for col in row:
-              {{col}}
+              <td>{{col}}</td>
           %end
+        </tr>
     %end
-    </textarea>
+    </table>
   </div>
 </form>
 

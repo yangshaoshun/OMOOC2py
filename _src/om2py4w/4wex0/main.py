@@ -10,8 +10,14 @@ sys.setdefaultencoding( "utf-8" )
 import sqlite3
 conn = sqlite3.connect('mydaily.db') # connect to  'mydaily.db'
 c = conn.cursor()
-
-
+# creat a table with sql commands
+#c.execute('''CREATE TABLE mydaily_log
+#                (time text, contents text, tag text)''')
+c.execute("INSERT INTO mydaily_log VALUES ('2016-01-10','1st row of diary in database','test')")
+conn.commit()
+c.execute("SELECT * FROM mydaily_log")
+print c.fetchone()
+conn.close()
 
 # 打开历史文件
 def print_log():

@@ -4,6 +4,7 @@
 ## TODO
 
 
+
 ## 参考
 
 - [图灵社区 : 阅读 : 使用GitBook平台发布电子书](http://www.ituring.com.cn/article/127744)
@@ -12,6 +13,7 @@
 
 ## (￣▽￣)
 
+- 160813 just test for github connection
 - 150924 ZQ 清理为学员模板
 - 150317 迁移用 开智官方 gitbook 身份
 - 150316 ZQ 创建
